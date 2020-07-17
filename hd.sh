@@ -11,3 +11,7 @@ echo "Network numbers:"
 lspci | grep -i ethernet
 echo "MAC:"
 dmesg | grep eth
+#内存插槽信息
+dmidecode|grep -P -A5 "Memory\s+Device"|grep Size|grep -v Range
+#内存速率
+dmidecode|grep -A16 "Memory Device"|grep 'Speed'
